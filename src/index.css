@@ -1,0 +1,220 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f9f9f9;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+
+/* ── Layout ── */
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* ── Upload area ── */
+.drop-zone {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s;
+  background: #fff;
+}
+.drop-zone:hover,
+.drop-zone.drag-over {
+  background: #eef4ff;
+  border-color: #4f7ef7;
+}
+.drop-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.drop-sub {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ── Metric cards (the summary numbers) ── */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 1.25rem;
+}
+.metric {
+  background: #f3f3f3;
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+}
+.metric-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+.metric-value {
+  font-size: 18px;
+  font-weight: 600;
+}
+.metric-value.sent    { color: #a32d2d; }
+.metric-value.received { color: #3b6d11; }
+
+/* ── Transaction table ── */
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #666;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e5e5e5;
+}
+td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td      { background: #fafafa; }
+
+/* ── Badges (Sent / Received pill) ── */
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge.sent     { background: #fcebeb; color: #a32d2d; }
+.badge.received { background: #eaf3de; color: #3b6d11; }
+
+/* ── Filter buttons ── */
+.filter-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 1rem;
+}
+.filter-btn {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: #f3f3f3;
+  color: #444;
+}
+.filter-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+/* ── Two-column layout ── */
+.main-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+@media (max-width: 600px) {
+  .main-layout { grid-template-columns: 1fr; }
+}
+
+/* ── Sidebar contact list ── */
+.sidebar {
+  border-right: 1px solid #eee;
+  padding-right: 1.25rem;
+}
+.people-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 0.75rem;
+}
+.person-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.person-row:hover   { background: #f3f3f3; }
+.person-row.selected { background: #eef4ff; border-color: #b3ccff; }
+
+/* ── Avatar circle ── */
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #dce8ff;
+  color: #1a4db3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ── Search box ── */
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+.search-row input {
+  flex: 1;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+.search-row input:focus {
+  outline: none;
+  border-color: #4f7ef7;
+}
+
+/* ── Empty state message ── */
+.empty {
+  text-align: center;
+  padding: 2.5rem;
+  color: #999;
+  font-size: 14px;
+}
+
+/* ── Top bar with filename and reset button ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.btn-ghost {
+  font-size: 12px;
+  padding: 5px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: transparent;
+  color: #555;
+}
